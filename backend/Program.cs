@@ -1,10 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManager.Data;
+using System.Text.Json;
 
 DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Ensures JSON properties use camelCase
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

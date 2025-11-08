@@ -18,6 +18,7 @@ namespace TaskManager.API
             _context = context;
         }
 
+        // Insert a new user (sign up) and credentials
         [HttpPost("signup")]
         public async Task<IActionResult> SignUp([FromBody] User user)
         {
@@ -33,6 +34,7 @@ namespace TaskManager.API
             return Ok(new { user.Id, user.Email });
         }
 
+        // Helper method to compute SHA256 hash and hash password
        private string ComputeSha256Hash(string rawData)
         {
             using (SHA256 sha256Hash = SHA256.Create())

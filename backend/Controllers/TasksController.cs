@@ -18,6 +18,7 @@ namespace TaskManager.API
             _context = context;
         }
 
+        // Get tasks for a specific user by their ID
         [HttpGet("user/{userid}")]
         public async Task<IActionResult> GetTask(int userid)
         {
@@ -29,16 +30,17 @@ namespace TaskManager.API
             return Ok(tasks);
         }   
 
+        // Create a new task
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] TaskItem task)
         {
             
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
-            // return Ok(task);
-            return CreatedAtAction(nameof(GetTask), new { id = task.Id }, task);
+            return Ok(task);
         }
 
+        // Update an existing task
         [HttpPut("{id}")] 
         public async Task<IActionResult> Update(int id, [FromBody] TaskItem updated)
         {
@@ -52,6 +54,7 @@ namespace TaskManager.API
             return Ok(task);
         }
 
+        // Delete a task
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

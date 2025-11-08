@@ -29,8 +29,10 @@ function Tasks() {
   const handleAddTask = async (e) => {
     e.preventDefault();
     if (!newTaskTitle.trim()) return;
+    const getId = JSON.parse(localStorage.getItem("user"));
+    const id = getId.id;
 
-    const task = await addTask(newTaskTitle);
+    const task = await addTask(newTaskTitle, id);
     setTasks(prev => [...prev, task]);
     setNewTaskTitle("");
   };

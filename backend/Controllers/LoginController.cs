@@ -24,6 +24,7 @@ namespace TaskManager.Controllers
             _context = context;
         }
 
+        // Check user credentials and log in
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
@@ -51,6 +52,7 @@ namespace TaskManager.Controllers
             }
         }
 
+        // Helper method to compute SHA256 hash and hash password
         private string ComputeSha256Hash(string rawData)
         {
             using (SHA256 sha256Hash = SHA256.Create())

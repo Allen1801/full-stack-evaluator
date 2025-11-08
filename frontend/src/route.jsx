@@ -5,7 +5,7 @@ import Login from "./login";
 import Signup from "./SIgnup";
 
 
-// Simple "protected route" example
+// Protected route that blocks access if no user is in localStorage
 function PrivateRoute({ children }) {
   const isAuthenticated = !!localStorage.getItem("user"); // simple check
   return isAuthenticated ? children : <Navigate to="/" />;
