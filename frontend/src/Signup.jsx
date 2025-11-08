@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "./api/axios";
+import "./css/signup.css";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ function SignUp() {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSignUp}>
         <div>

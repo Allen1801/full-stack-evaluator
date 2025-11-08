@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from "./api/axios"
+import "./css/task.css"
 
 import {fetchTasks, addTask, updateTask} from './functions/notefunctions';
 
@@ -64,7 +65,7 @@ function Tasks() {
   }
 
   return (
-    <div>
+    <div className='tasks-container'>
       <h2>Tasks</h2>
       <form onSubmit={handleAddTask}>
         <input type="text" 

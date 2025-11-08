@@ -1,0 +1,72 @@
+body, html {
+  background-color: #121212; /* dark background */
+  color: #ddd; /* light text globally */
+  font-family: Arial, sans-serif;
+}
+
+.tasks-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.tasks-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.tasks-container form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tasks-container input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+}
+
+.tasks-container button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tasks-container button:hover {
+  background-color: #0056b3;
+}
+
+.tasks-container ul {
+  list-style-type: none;
+  padding: 0;
+  color: black;
+}
+
+.tasks-container li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.tasks-container li span {
+  flex: 1;
+}
+
+.tasks-container li input[type="text"] {
+  flex: 1;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+}
