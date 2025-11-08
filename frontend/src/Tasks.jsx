@@ -21,14 +21,14 @@ function Tasks() {
 
     try {
       const res = await api.post('/tasks', { 
-        title: newTaskTitle, 
-        isDone: false,
-        userID: 1
+        Title: newTaskTitle, 
+        IsDone: false,
+        UserId: 1,
       });
       setTasks([...tasks, res.data]);
       setNewTaskTitle("");
     } catch (error) {
-      
+      console.error(error);
     }
   }
 
