@@ -18,13 +18,16 @@ namespace TaskManager.API
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpGet("user/{userid}")]
+        public async Task<IActionResult> GetTask(int userid)
         {
             
-            var tasks = await _context.Tasks.ToListAsync();
+            var tasks = await _context.Tasks
+                .Where(t => t.UserId == userid)
+                .ToListAsync();
+
             return Ok(tasks);
-        }
+        }   
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] TaskItem task)
@@ -33,7 +36,7 @@ namespace TaskManager.API
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
             // return Ok(task);
-            return CreatedAtAction(nameof(Get), new { id = task.Id }, task);
+            return CreatedAtAction(nameof(GetTask), new { id = task.Id }, task);
         }
 
         [HttpPut("{id}")] 

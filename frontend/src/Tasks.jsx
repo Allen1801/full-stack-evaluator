@@ -15,8 +15,11 @@ function Tasks() {
 
   const loadTasks = async () => {
     try {
-      const data = await fetchTasks();
-      console.log("Fetched tasks:", data);
+      const getId = JSON.parse(localStorage.getItem("user"));
+      const id = getId.id;
+
+      const data = await fetchTasks(id);
+      console.log("Fetched tasks:", data, id);
       setTasks(data);
     } catch (error) {
       console.error("Error loading tasks:", error);

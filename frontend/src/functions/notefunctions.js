@@ -1,8 +1,8 @@
 import api from "../api/axios";
 
-export const fetchTasks = async () => {
+export const fetchTasks = async (id) => {
   try {
-    const response = await api.get('/tasks');
+    const response = await api.get(`/tasks/user/${id}`);
     return response.data; 
   } catch (error) {
     console.error("Failed to fetch tasks:", error);
