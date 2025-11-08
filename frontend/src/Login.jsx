@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "./api/axios";
 
 export default function Login() {
@@ -53,6 +53,7 @@ export default function Login() {
         </div>
         <button type="submit">Login</button>
         </form>
+        <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
         {message && <p>{message}</p>}
     </div>
     );

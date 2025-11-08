@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Tasks from "./Tasks";
 import Login from "./login";
+import Signup from "./SIgnup";
+
 
 // Simple "protected route" example
 function PrivateRoute({ children }) {
@@ -14,6 +16,7 @@ export default function AppRoutes() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route
           path="/tasks"
           element={
