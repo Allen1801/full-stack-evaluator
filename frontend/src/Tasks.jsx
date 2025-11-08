@@ -9,6 +9,10 @@ function Tasks() {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editingTitle, setEditingTitle] = useState("");
 
+  useEffect(() => {
+    loadTasks();
+  }, []);
+
   const loadTasks = async () => {
     try {
       const data = await fetchTasks();
@@ -18,10 +22,6 @@ function Tasks() {
       console.error("Error loading tasks:", error);
     }
   };
-
-  useEffect(() => {
-    loadTasks();
-  }, []);
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -52,6 +52,11 @@ function Tasks() {
     const data = await updateTask(task.id, updatedTask);
     setTasks(tasks.map(t => t.id === task.id ? data : t));
   };
+
+  const handleDeleteTask = async (id) => {
+    await api.delete(`/tasks/${id}`);
+    setTasks(tasks.filter(t => t.id !== id));
+  }
 
   return (
     <div>
@@ -91,6 +96,7 @@ function Tasks() {
             {task.title} {task.isDone ? '✅' : '❌'}
             </span>
             <button onClick={() => handleEditTask(task)}>Edit</button>
+            <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
           </>
         )}
             </li>

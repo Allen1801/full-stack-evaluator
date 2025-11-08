@@ -1,11 +1,11 @@
 import './App.css'
-import Tasks from "./Tasks"
+import AppRoutes from './route';
 
 function App() {
   return (
     <div className="app">
       <h1>📝 React Task Evaluator</h1>
-      <Tasks />
+      <AppRoutes/>
     </div>
   );
 }
